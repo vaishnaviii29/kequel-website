@@ -1,30 +1,60 @@
 import React from "react";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaKickstarter, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
-    <div
-      className="bg-black text-white p-5 flex justify-between w-full"
-      id="footer"
-    >
-      <div className="flex flex-col space-y-3">
-        <a href="#services" className="text-xl">
-          Services
-        </a>
-        <a href="/about-us" className="text-xl">
-          About Us
-        </a>
-        <a href="#contactUs" className="text-xl">
-          Contact Us
-        </a>
+    <div className="bg-black text-white p-5 flex flex-col md:flex-row justify-between w-full" id="footer" style={{ height: '240px' }}>
+      <div className="flex flex-col justify-end h-full space-y-3 pb-7">
+        <p>Contact: +91 7720076457  |  Email: quoppo@xyz</p>
       </div>
-      <div className="flex flex-col text-right space-y-2">
-        <p className="text-sm">Pune</p>
-        <p className="text-sm">meskolabs@gmail.com</p>
-        <p className="text-sm">+91 7720076457</p>
-        <div className="flex justify-end space-x-3">
+      <div className="flex flex-col pb-5 justify-end items-end h-full space-y-3">
+        <div className="flex flex-col space-y-3">
+          <p>Subscribe to our newsletter and stay up to date about the company.</p>
+          <div className="flex items-center w-full">
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    className="px-6 py-2 rounded-l-3xl text-black w-full"
+  />
+  <button className="bg-white text-black px-4 py-2 rounded-r-3xl">Signup</button>
+</div>
+
+        </div>
+        <div className="flex justify-center pt-10 md:justify-end space-x-8 mt-3 md:mt-0">
           <a
-            href="https://www.instagram.com/meskolabs"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <FaFacebook size={24} />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Kickstarter"
+          >
+            <FaKickstarter size={24} />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <FaTwitter size={24} />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -32,12 +62,12 @@ const Footer: React.FC = () => {
             <FaInstagram size={24} />
           </a>
           <a
-            href="https://www.linkedin.com/company/meskolabs/"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label="YouTube"
           >
-            <FaLinkedin size={24} />
+            <FaYoutube size={24} />
           </a>
         </div>
       </div>

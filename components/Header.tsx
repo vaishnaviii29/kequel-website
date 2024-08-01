@@ -5,7 +5,6 @@ import Logo from '../public/assets/kequel logo.png';
 import Logo2 from '../public/assets/cart.png';
 import Logo3 from '../public/assets/account_circle.png';
 
-
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -32,45 +31,54 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <div className={'relative flex justify-between items-center px-5 sm:px-15 py-4 pl-36'} style={{ opacity: 1, transition: 'opacity 0.3s ease' }}>
-        <div>
-          <Link href="/" className='flex items-center gap-3'>
-            <Image src={Logo} alt="Kequel Logo" width={40} height={40} />
-           
-          </Link>
-        </div>
-        <nav className="hidden md:flex space-x-6 items-center font-inter relative pr-20">
-          <Link href="/shop" className="text-gray-700 hover:text-gray-900">Shop</Link>
-          <Link href="/" className='flex items-center gap-3'>
-            <Image src={Logo2} alt="Kequel Logo" width={40} height={40} />
-           
-          </Link>
-          <Link href="/" className='flex items-center gap-3'>
-            <Image src={Logo3} alt="Kequel Logo" width={40} height={40} />
-           
-          </Link>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white ">
+        <div className="relative flex justify-between items-center px-5 sm:px-15 py-4 pl-36" style={{ opacity: 1, transition: 'opacity 0.3s ease' }}>
+          <div>
+            <Link href="/" className='flex items-center gap-3'>
+              <Image src={Logo} alt="Kequel Logo" width={40} height={40} />
+            </Link>
+          </div>
+          <nav className="hidden md:flex space-x-6 items-center font-inter relative pr-20">
+            <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <Link href="" className="text-gray-700 hover:text-gray-900">Shop</Link>
+              {showDropdown && (
+                <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg">
+                  <Link href="/classic" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Classic</Link>
+                  <Link href="/plus" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Plus</Link>
+                </div>
+              )}
+            </div>
+            <Link href="/" className='flex items-center gap-3'>
+              <Image src={Logo2} alt="Cart Logo" width={40} height={40} />
+            </Link>
+            <Link href="/" className='flex items-center gap-3'>
+              <Image src={Logo3} alt="Account Logo" width={40} height={40} />
+            </Link>
           </nav>
-        <div className="md:hidden">
-          <button
-            type="button"
-            className="text-gray-700 hover:text-gray-900 focus:outline-none"
-            onClick={toggleMenu}
-          >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
+          <div className="md:hidden">
+            <button
+              type="button"
+              className="text-gray-700 hover:text-gray-900 focus:outline-none"
+              onClick={toggleMenu}
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+        {isOpen && (
+          <nav className="md:hidden bg-white shadow-md font-inter">
+            <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
+            <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
+            <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
+            <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Contact</Link>
+          </nav>
+        )}
       </div>
-      {isOpen && (
-        <nav className="md:hidden bg-white shadow-md font-inter">
-          <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
-          <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
-          <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Page</Link>
-          <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-gray-700 hover:text-gray-900">Contact</Link>
-
-        </nav>
-      )}
+      <div style={{ paddingTop: '80px' }}>
+        {/* Your page content goes here */}
+      </div>
     </>
   );
 };
